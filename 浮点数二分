@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int n;
+ int main()
+ {
+     double x;
+     scanf("%lf",&x);//注意lf
+     
+     double l=-100000,r=100000;
+     while(r-l>1e-8)//注意如果是六位小数就-8，五位小数就-7，也是保证满足负六位关键
+     {
+         double mid=(l+r)/2;
+         if(mid*mid*mid>=x) r=mid;//二分法为什么可以找到数据，在于可以分两种情况，不是单项，单调查找，小了就加边界，大了就缩边界
+         else l=mid;
+     }
+     
+     printf("%.6lf\n", l);
+    return 0;
+     
+ }
